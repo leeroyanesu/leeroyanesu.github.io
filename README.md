@@ -126,11 +126,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Connect With Me
 
-[![GitHub: nixrajput](https://img.shields.io/badge/leeroyanesu?logo=GitHub&logoColor=333&link=https://www.github.com/leeroyanesu)][github]
-[![Linkedin: nixrajput](https://img.shields.io/badge/leeroyanesu?logo=LinkedIn&logoColor=blue&link=https://www.linkedin.com/in/leeroy-chako-345626153)][linkedin]
-[![Twitter: nixrajput07](https://img.shields.io/badge/leeroyanesu?logo=X&logoColor=333&link=https://x.com/MrLeeC)][twitter]
-[![Telegram: nixrajput](https://img.shields.io/badge/leeroyanesu?logo=Telegram&link=https://telegram.me/MrLee)][telegram]
-[![Gmail: nkr.nikhi.nkr@gmail.com](https://img.shields.io/badge/leeroyanesu?logo=Gmail&link=mailto:leeroyachako@gmail.com)][gmail]
+[![GitHub: leeroyanesu](https://img.shields.io/badge/leeroyanesu-EFF7F6?logo=GitHub&logoColor=333&link=https://www.github.com/leeroyanesu)][github]
+[![Linkedin: leeroyanesu](https://img.shields.io/badge/Leeroy_Chako-EFF7F6?logo=LinkedIn&logoColor=blue&link=https://www.linkedin.com/in/leeroy-chako-345626153)][linkedin]
+[![Twitter: leeroyanesu](https://img.shields.io/badge/MrLeeC-EFF7F6?logo=X&logoColor=333&link=https://x.com/MrLeeC)][twitter]
+[![Telegram: leeroyanesu](https://img.shields.io/badge/leeroyanesu-EFF7F6?logo=Telegram&link=https://telegram.me/MrLee)][telegram]
+[![Gmail: leeroyachako@gmail.com](https://img.shields.io/badge/leeroyachako@gmail.com-EFF7F6?logo=Gmail&link=mailto:leeroyachako@gmail.com)][gmail]
 
 [github]: https://github.com/leeroyanesu
 [twitter]: https://twitter.com/MrLeeC
