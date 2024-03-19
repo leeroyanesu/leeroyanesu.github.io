@@ -18,13 +18,7 @@ const ProjectDetails = ({
         </Suspense>
       </PageBox>
 
-      {!!searchParams.imgSrc ? (
-        <Modal closeHref={`/projects?id=${searchParams.id}`}>
-          <Suspense>
-            <GalleryImageView src={searchParams.imgSrc} />
-          </Suspense>
-        </Modal>
-      ) : null}
+      
     </>
   );
 };
