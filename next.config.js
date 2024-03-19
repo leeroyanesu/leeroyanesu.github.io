@@ -1,7 +1,12 @@
- /** @type {import('next').NextConfig} */
- const nextConfig = {
-  output: "exports", // lightweight but no dynamic routes & api support
-  // output: "standalone", // bulkier but supports dynamic routes & api
-}
+/**
+* @type {import('next').NextConfig}
+*/
+const nextConfig = {
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
+  assetPrefix: './',
+};
 
-module.exports = nextConfig
+export default nextConfig;
