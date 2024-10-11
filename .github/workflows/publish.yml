@@ -33,12 +33,12 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build --outdir ./out
+        run: npx next build
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./.next
       - name: Deployment
         uses: actions/deploy-pages@v3
         with:
