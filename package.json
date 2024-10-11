@@ -9,6 +9,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
+    "deploy": "next build && touch ./out/.nojekyll && gh-pages -d out -t true",
     "push": "git add -A && git commit -m \"update changes and bug fixes\" && git push origin master"
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "animejs": "^3.2.2",
     "framer-motion": "^11.0.5",
+    "gh-pages": "^6.2.0",
     "lodash": "^4.17.21",
     "next": "14.1.0",
     "postcss": "8.4.35",
