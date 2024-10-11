@@ -2,14 +2,24 @@ import { IExperienceItem } from "@/types";
 
 const experiences: IExperienceItem[] = [
   {
+    designation: "Full Stack Mobile Development",
+    company: "Swahiba Tech",
+    startDate: "May 2024",
+    endDate: "",
+    isCurrentJob: true,
+    location: "Gaborone, Botswana",
+    description:
+      "Currently, I am working on a multi-platform mobile application with three components: an app for food restaurants, a taxi driver app, and a main app for customers. The main app allows users to request or purchase services, while the restaurant and driver apps enable stakeholders to fulfill those requests. This project aims to streamline the interaction between consumers and service providers, enhancing the overall user experience.",
+  },
+  {
     designation: "Full Stack Development",
     company: "Freelance",
     startDate: "Nov 2023",
-    endDate: "",
-    isCurrentJob: true,
-    location: "Sheffield,United Kingdom",
+    endDate: "May 2024",
+    isCurrentJob: false,
+    location: "Sheffield, United Kingdom",
     description:
-      "At the moment, I'm deeply immersed in learning various cutting-edge technologies, driven by a passion for innovation and a commitment to staying at the forefront of the digital landscape. My journey includes venturing into emerging fields such as data analytics, where I'm honing my skills in extracting actionable insights from vast datasets to inform strategic decision-making. Additionally, I'm actively exploring AI integration, intrigued by its potential to revolutionize industries and enhance user experiences through intelligent automation and predictive analytics. Furthermore, my interests extend to the intersection of technology and finance, where I'm eager to leverage my technical acumen to develop fintech solutions that streamline processes, mitigate risks, and unlock new opportunities in the financial sector. With each new area of exploration, I'm driven by a relentless pursuit of knowledge and a desire to make meaningful contributions to the advancement of technology and society.",
+      "During this moment, I was deeply immersed in learning various cutting-edge technologies, driven by a passion for innovation and a commitment to staying at the forefront of the digital landscape. My journey has included venturing into emerging fields such as data analytics, where I'm honing my skills in extracting actionable insights from vast datasets to inform strategic decision-making. Additionally, I was actively exploring AI integration, intrigued by its potential to revolutionize industries and enhance user experiences through intelligent automation and predictive analytics. Furthermore, my interests extend to the intersection of technology and finance, where I'm eager to leverage my technical acumen to develop fintech solutions that streamline processes, mitigate risks, and unlock new opportunities in the financial sector. With each new area of exploration, I'm driven by a relentless pursuit of knowledge and a desire to make meaningful contributions to the advancement of technology and society.",
   },
   {
     designation: "Mobile App Developer",

@@ -17,8 +17,8 @@ class Strings {
   static twitterUsername = "MrLee_C";
 
   static email = "Email";
-  static primaryEmailLink = "mailto:leeroyachako@gmail.com";
-  static primaryEmail = "leeroyachako@gmail.com";
+  static primaryEmailLink = "mailto:leeroychako@gmail.com";
+  static primaryEmail = "leeroychako@gmail.com";
 
   static fullName = "Lee-Roy A Chako";
   static shortName = "mrlee";

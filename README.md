@@ -129,14 +129,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [![GitHub: leeroyanesu](https://img.shields.io/badge/leeroyanesu-EFF7F6?logo=GitHub&logoColor=333&link=https://www.github.com/leeroyanesu)][github]
 [![Linkedin: leeroyanesu](https://img.shields.io/badge/Leeroy_Chako-EFF7F6?logo=LinkedIn&logoColor=blue&link=https://www.linkedin.com/in/leeroy-chako-345626153)][linkedin]
 [![Twitter: leeroyanesu](https://img.shields.io/badge/MrLeeC-EFF7F6?logo=X&logoColor=333&link=https://x.com/MrLeeC)][twitter]
-[![Telegram: leeroyanesu](https://img.shields.io/badge/leeroyanesu-EFF7F6?logo=Telegram&link=https://telegram.me/MrLee)][telegram]
-[![Gmail: leeroyachako@gmail.com](https://img.shields.io/badge/leeroyachako@gmail.com-EFF7F6?logo=Gmail&link=mailto:leeroyachako@gmail.com)][gmail]
+[![Telegram: leeroyanesu](https://img.shields.io/badge/leeroyanesu-EFF7F6?logo=Telegram&link=https://telegram.me/MrLeeA_C)][telegram]
+[![Gmail: leeroychako@gmail.com](https://img.shields.io/badge/leeroychako@gmail.com-EFF7F6?logo=Gmail&link=mailto:leeroychako@gmail.com)][gmail]
 
 [github]: https://github.com/leeroyanesu
-[twitter]: https://twitter.com/MrLeeC
+[twitter]: https://twitter.com/MrLee_C
 [linkedin]: https://www.linkedin.com/in/leeroy-chako-345626153
-[telegram]: https://telegram.me/MrLee
-[gmail]: mailto:leeroyachako@gmail.com
+[telegram]: https://telegram.me/MrLeeA_C
+[gmail]: mailto:leeroychako@gmail.com
 
 [repo]: https://github.com/leeroyanesu/portfolio-nextjs
 [issues]: https://github.com/leeroyanesu/portfolio-nextjs/issues

@@ -75,7 +75,7 @@ const HomeSection1 = ({ id }: Readonly<{ id: string }>) => {
             </Column>
           </Column>
 
-          <Row classNames="w-[23rem] h-[20rem] lg:w-[45rem] lg:h-[43rem] pointer-events-none justify-self-center sm:justify-self-end items-center justify-center aspect-sqaure overflow-hidden my-auto drop_out">
+          <Row classNames="w-[23rem] h-[20rem] lg:w-full lg:h-[43rem] pointer-events-none justify-self-center sm:justify-self-end items-center justify-center aspect-sqaure overflow-hidden my-auto drop_out hidden md:block">
             <Row classNames="w-full h-auto items-center justify-center bg-transparent aspect-sqaure overflow-hidden pointer-events-none">
               <Image
                 src="/images/wallpaper1.png"

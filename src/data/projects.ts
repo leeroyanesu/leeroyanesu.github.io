@@ -3,6 +3,26 @@ import { IProjectItem, ProjectType, RepoType } from "@/types";
 const projects: IProjectItem[] = [
   {
     id: "social-media-app-flutter",
+    title: "Mobile App (3 in 1)",
+    description:
+      "A 3 in 1 application that seeks to connect various stakeholders to their customers through a single application. Food delivery, ride sharing or property booking for the holidays",
+    icon: "/skills/reactNative.png",
+    repoType: RepoType.Private,
+    projectType: ProjectType.Personal,
+    tags: ["React Native", "Stripe", "Firebase", "Redux","UX/UI Design"],
+  },
+  {
+    id: "social-media-app-flutter",
+    title: "Mobile App (Subsidiaries of 3 in 1)",
+    description:
+      "For each of the services provided by the 3 in 1 app, there is a driver app for managing orders and data. For food delivery there is a merchant application for handling the backend of the restaurant",
+    icon: "/skills/reactNative.png",
+    repoType: RepoType.Private,
+    projectType: ProjectType.Personal,
+    tags: ["React Native", "Stripe", "Firebase", "Redux","UX/UI Design"],
+  },
+  {
+    id: "social-media-app-flutter",
     title: "UI/UX Real Estate CrowdFunding App",
     description:
       "A real estate mobile application  developed using React Native, ExpressJs, Firebase Notifications and Mongodb. Its main use is to crowdfund projects that exists in the real estate market",
