@@ -31,7 +31,7 @@ const HomeSection1 = ({ id }: Readonly<{ id: string }>) => {
               </p>
 
               <p className="text-sm/6 font-medium text-[var(--textColorLight)] drop_in">
-                Software Engineer, Blockchain Developer & Full Stack Developer
+                Full Stack Mobile Developer & Unity BackEnd Developer
               </p>
 
               <p className="text-base/normal mt-8 drop_in">
@@ -40,7 +40,7 @@ const HomeSection1 = ({ id }: Readonly<{ id: string }>) => {
                  I&apos;m an ardent full-stack developer with over 5 years of experience. 
                  Specializing in crafting user-centric software, 
                  I excel in both front-end and back-end development across diverse platforms.
-                  With expertise in blockchain and mobile development, 
+                  With expertise in blockchain, mobile development along with unity cloud integration with hybrid apps, 
                   I seamlessly integrate cutting-edge technology while placing a
                    premium on design aesthetics.
                 </Balancer>
