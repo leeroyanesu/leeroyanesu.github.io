@@ -17,7 +17,7 @@ const experiences: IExperienceItem[] = [
     startDate: "Nov 2023",
     endDate: "May 2024",
     isCurrentJob: false,
-    location: "Sheffield, United Kingdom",
+    location: "Harare, Zimbabwe",
     description:
       "During this moment, I was deeply immersed in learning various cutting-edge technologies, driven by a passion for innovation and a commitment to staying at the forefront of the digital landscape. My journey has included venturing into emerging fields such as data analytics, where I'm honing my skills in extracting actionable insights from vast datasets to inform strategic decision-making. Additionally, I was actively exploring AI integration, intrigued by its potential to revolutionize industries and enhance user experiences through intelligent automation and predictive analytics. Furthermore, my interests extend to the intersection of technology and finance, where I'm eager to leverage my technical acumen to develop fintech solutions that streamline processes, mitigate risks, and unlock new opportunities in the financial sector. With each new area of exploration, I'm driven by a relentless pursuit of knowledge and a desire to make meaningful contributions to the advancement of technology and society.",
   },
