@@ -2,7 +2,7 @@ import { IProjectItem, ProjectType, RepoType } from "@/types";
 
 const projects: IProjectItem[] = [
   {
-    id: "social-media-app-flutter",
+    id: "3-in-1-mobile-app",
     title: "Mobile App (3 in 1)",
     description:
       "A 3 in 1 application that seeks to connect various stakeholders to their customers through a single application. Food delivery, ride sharing or property booking for the holidays",
@@ -12,7 +12,7 @@ const projects: IProjectItem[] = [
     tags: ["React Native", "Stripe", "Firebase", "Redux","UX/UI Design"],
   },
   {
-    id: "social-media-app-flutter",
+    id: "mobile-app-react",
     title: "Mobile App (Subsidiaries of 3 in 1)",
     description:
       "For each of the services provided by the 3 in 1 app, there is a driver app for managing orders and data. For food delivery there is a merchant application for handling the backend of the restaurant",
@@ -22,7 +22,7 @@ const projects: IProjectItem[] = [
     tags: ["React Native", "Stripe", "Firebase", "Redux","UX/UI Design"],
   },
   {
-    id: "social-media-app-flutter",
+    id: "ux-ui-real-estate",
     title: "UI/UX Real Estate CrowdFunding App",
     description:
       "A real estate mobile application  developed using React Native, ExpressJs, Firebase Notifications and Mongodb. Its main use is to crowdfund projects that exists in the real estate market",
@@ -32,7 +32,7 @@ const projects: IProjectItem[] = [
     tags: ["React Native", "NodeJs", "ExpressJs", "Mongodb", "Redux","Stripe"],
   },
   {
-    id: "social-media-app-flutter",
+    id: "crypto-chart-script",
     title: "Crypto Chart Publisher",
     description:
       "A Chatbot that utilizes whatsapp web to developer screenshots of prices of any coin/token that exists in Binance Exchange and send a picture throught whatsapp web",
@@ -42,7 +42,7 @@ const projects: IProjectItem[] = [
     tags: [ "NodeJs", "ExpressJs", "WhatsappWeb",],
   },
   {
-    id: "social-media-app-flutter",
+    id: "live-signals-app",
     title: "Live Signals",
     description:
       "A mobile application for publishing trading signals to anyone who has and follows @ironmanFX. It delivers curated trading signals from experienced experts, keeping users informed about market movements and opportunities in real-time. ",
