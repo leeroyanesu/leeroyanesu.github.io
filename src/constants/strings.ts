@@ -8,7 +8,7 @@ class Strings {
   static githubUsername = "leeroyanesu";
 
   static linkedIn = "LinkedIn";
-  static linkedInLink = "https://www.linkedin.com/in/leeroy-chako-345626153";
+  static linkedInLink = "https://www.linkedin.com/in/leeroy-chako/";
   static linkedInUsername = "Leeroy Chako";
 
 
