@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { GradientText } from "./ui/gradient-text";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
 import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
 import { Button } from "./ui/button";
@@ -137,7 +138,7 @@ const Projects = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Recent <span className="bg-gradient-to-r from-orange to-primary bg-clip-text text-transparent">Works</span>
+            Recent <GradientText colors={["from-orange", "to-primary"]}>Works</GradientText>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A showcase of projects that demonstrate my expertise across various domains

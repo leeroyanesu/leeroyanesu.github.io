@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Smartphone, Globe, Blocks, Database, Code, Palette } from "lucide-react";
+import { GradientText } from "./ui/gradient-text";
 
 const Services = () => {
   const services = [
@@ -52,7 +53,7 @@ const Services = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="bg-gradient-to-r from-primary to-orange bg-clip-text text-transparent">Services</span>
+            My <GradientText colors={["from-primary", "to-orange"]}>Services</GradientText>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Comprehensive solutions tailored to bring your vision to life

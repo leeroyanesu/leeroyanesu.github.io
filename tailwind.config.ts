@@ -112,6 +112,11 @@ export default {
             boxShadow: "0 0 40px hsl(195 100% 50% / 0.6)",
           },
         },
+        "gradient": {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -119,6 +124,7 @@ export default {
         "fade-in": "fade-in 0.6s ease-out",
         "slide-in": "slide-in 0.5s ease-out",
         "glow": "glow 3s ease-in-out infinite",
+        "gradient": 'gradient 8s linear infinite'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

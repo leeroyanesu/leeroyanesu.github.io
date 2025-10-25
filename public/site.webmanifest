@@ -1,0 +1,26 @@
+{
+  "name": "MrLeeC | Leeroy Chako - Portfolio",
+  "short_name": "MrLeeC",
+  "description": "Leeroy Chako is a proficient Mobile, Blockchain & Full Stack Developer, skilled in seamlessly integrating front-end and back-end technologies while excelling in design.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["developer", "portfolio", "technology"],
+  "lang": "en",
+  "scope": "/",
+  "id": "mrleec-portfolio"
+}

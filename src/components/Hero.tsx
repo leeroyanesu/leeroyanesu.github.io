@@ -1,5 +1,6 @@
 import { Button } from "./ui/button";
 import { Github, Linkedin, Send, Mail, Twitter } from "lucide-react";
+import { GradientText } from "./ui/gradient-text";
 
 const Hero = () => {
   return (
@@ -8,8 +9,8 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           <div className="space-y-4">
             <p className="text-primary text-lg">Hi 👋 I'm</p>
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-orange to-primary bg-clip-text text-transparent">
-              Lee-Roy Chako
+            <h1 className="text-5xl md:text-7xl font-bold">
+              <GradientText>Lee-Roy Chako</GradientText>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
               Full Stack Mobile, Web & Web3 Developer
@@ -32,7 +33,7 @@ const Hero = () => {
               <a href="mailto:leeroyachako@gmail.com">Let's Talk</a>
             </Button>
             <Button size="lg" variant="secondary" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/leeroy_chako_resume.pdf" target="_blank" rel="noopener noreferrer">
                 Download Resume
               </a>
             </Button>

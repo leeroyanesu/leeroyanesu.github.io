@@ -1,5 +1,6 @@
 import { Card } from "./ui/card";
 import { Github, Linkedin, Send, Mail, Twitter, Code } from "lucide-react";
+import { GradientText } from "./ui/gradient-text";
 
 const Contact = () => {
   const contactLinks = [
@@ -45,7 +46,7 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in <span className="bg-gradient-to-r from-primary to-orange bg-clip-text text-transparent">Touch</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in <GradientText colors={["from-primary", "to-orange"]}>Touch</GradientText></h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Let's collaborate and bring your ideas to life
           </p>

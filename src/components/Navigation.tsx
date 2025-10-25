@@ -37,8 +37,8 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-            &lt;MrLeeC/&gt;
+          <a href="#" className="flex items-center gap-2">
+            <img src="/icon.png" alt="MrLeeC Logo" className="w-24 h-24" />
           </a>
 
           {/* Desktop Navigation */}
