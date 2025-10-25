@@ -19,6 +19,22 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      title: "InkCopilot",
+      description:
+        "AI-powered content creation and publishing automation platform for busy creators. Features automated article generation, WordPress integration, SEO insights, and news integration. Helps creators scale from 3 to 15+ articles per week while maintaining quality.",
+      tags: ["AI", "Next.js", "WordPress API", "SEO", "Automation"],
+      status: "Public",
+      images: ["/placeholder.svg"],
+    },
+    {
+      title: "SWEPR",
+      description:
+        "Blockchain-based gaming platform powered by Deorganised on Stacks Blockchain. Features weekly leaderboards, $SWPR token mining, lottery system with STX rewards, and Xverse/Leather wallet integration for transparent, instant payouts.",
+      tags: ["Stacks Blockchain", "Web3", "React", "Smart Contracts", "Gaming"],
+      status: "Public",
+      images: ["/placeholder.svg"],
+    },
+    {
       title: "Mobile App (3 in 1)",
       description:
         "A 3 in 1 application that seeks to connect various stakeholders to their customers through a single application. Food delivery, ride sharing or property booking for the holidays. Built with React Native, featuring real-time tracking, secure payments via Stripe, and seamless UX.",

@@ -12,7 +12,7 @@ const Hero = () => {
               Lee-Roy Chako
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
-              Full Stack Mobile Developer & Unity BackEnd Developer
+              Full Stack Mobile, Web & Web3 Developer
             </p>
           </div>
 
