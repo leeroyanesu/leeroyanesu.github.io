@@ -12,7 +12,6 @@ const Index = () => {
       <Navigation />
       <main>
         <Hero />
-        <div id="about" className="h-1" />
         <Services />
         <Experience />
         <Skills />

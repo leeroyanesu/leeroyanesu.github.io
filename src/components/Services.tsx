@@ -39,10 +39,16 @@ const Services = () => {
       description:
         "I create user-centric designs that prioritize aesthetics and usability. By combining modern design principles with user research, I craft interfaces that not only look beautiful but also provide exceptional user experiences.",
     },
+    {
+      icon: <Code className="w-8 h-8" />,
+      title: "AI & Automation Solutions",
+      description:
+        "I leverage cutting-edge AI technologies and N8N workflow automation to build intelligent applications. From chatbots and machine learning integrations to automated business processes, I help streamline operations and enhance user experiences with AI-powered solutions.",
+    },
   ];
 
   return (
-    <section id="services" className="py-20 px-4">
+    <section id="about" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">My Services</h2>

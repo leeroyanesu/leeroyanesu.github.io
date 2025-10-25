@@ -1,5 +1,5 @@
 import { Card } from "./ui/card";
-import { Github, Linkedin, Send, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Send, Mail, Twitter, Code } from "lucide-react";
 
 const Contact = () => {
   const contactLinks = [
@@ -32,6 +32,12 @@ const Contact = () => {
       label: "Email",
       href: "mailto:leeroyachako@gmail.com",
       username: "leeroyachako@gmail.com",
+    },
+    {
+      icon: <Code size={24} />,
+      label: "Upwork",
+      href: "https://www.upwork.com/freelancers/leeroyc",
+      username: "Leeroy C.",
     },
   ];
 

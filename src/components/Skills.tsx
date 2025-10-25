@@ -49,6 +49,8 @@ const Skills = () => {
         { name: "AWS", icon: "☁️" },
         { name: "Firebase", icon: "🔥" },
         { name: "Linux", icon: "🐧" },
+        { name: "N8N", icon: "🔗" },
+        { name: "AI Integration", icon: "🤖" },
       ],
     },
     {

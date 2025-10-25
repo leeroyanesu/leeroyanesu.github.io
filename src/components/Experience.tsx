@@ -7,11 +7,11 @@ const Experience = () => {
       role: "Senior Full Stack Developer",
       company: "Freelance & Contract Work",
       description:
-        "Leading development of complex mobile and web applications for diverse clients. Specializing in React Native, Next.js, and blockchain technologies.",
+        "Leading development of complex applications specializing in game analytics, Unity integration, and web development. Building intelligent solutions that bridge gaming platforms with modern web technologies.",
       achievements: [
-        "Developed 10+ production-ready mobile applications",
-        "Implemented blockchain solutions for NFT marketplace",
-        "Reduced app loading time by 40% through optimization",
+        "Developed advanced game analytics systems with Unity integration",
+        "Built 10+ production-ready mobile and web applications",
+        "Implemented AI-powered features and N8N workflow automation",
       ],
     },
     {
