@@ -8,7 +8,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
           <div className="space-y-4">
             <p className="text-primary text-lg">Hi 👋 I'm</p>
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-orange to-primary bg-clip-text text-transparent">
               Lee-Roy Chako
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground">
@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Button
               size="lg"
-              className="bg-gradient-primary hover:opacity-90 transition-opacity"
+              className="bg-gradient-orange hover:opacity-90 transition-opacity shadow-[0_0_20px_hsl(25_95%_55%_/_0.3)]"
               asChild
             >
               <a href="mailto:leeroyachako@gmail.com">Let's Talk</a>

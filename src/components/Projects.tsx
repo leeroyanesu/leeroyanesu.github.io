@@ -136,7 +136,9 @@ const Projects = () => {
     <section id="projects" className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent Works</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Recent <span className="bg-gradient-to-r from-orange to-primary bg-clip-text text-transparent">Works</span>
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             A showcase of projects that demonstrate my expertise across various domains
           </p>
@@ -157,7 +159,7 @@ const Projects = () => {
                   <CardTitle className="text-xl group-hover:text-primary transition-colors">
                     {project.title}
                   </CardTitle>
-                  <Badge variant={project.status === "Public" ? "default" : "secondary"}>
+                  <Badge variant={project.status === "Public" ? "default" : "secondary"} className={project.status === "Public" ? "bg-gradient-orange" : ""}>
                     {project.status}
                   </Badge>
                 </div>

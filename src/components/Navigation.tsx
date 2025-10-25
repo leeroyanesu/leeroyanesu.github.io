@@ -47,7 +47,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                className="text-sm text-muted-foreground hover:text-orange transition-colors"
               >
                 {item.label}
               </button>
@@ -72,7 +72,7 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-primary transition-colors"
+                className="block w-full text-left py-2 text-muted-foreground hover:text-orange transition-colors"
               >
                 {item.label}
               </button>

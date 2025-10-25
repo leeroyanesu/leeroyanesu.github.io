@@ -45,7 +45,7 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Get in <span className="bg-gradient-to-r from-primary to-orange bg-clip-text text-transparent">Touch</span></h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Let's collaborate and bring your ideas to life
           </p>
@@ -61,14 +61,14 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="group"
               >
-                <Card className="p-6 bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_30px_hsl(195_100%_50%_/_0.3)]">
+                <Card className="p-6 bg-gradient-card border-border hover:border-orange transition-all duration-300 hover:shadow-[0_0_30px_hsl(25_95%_55%_/_0.3)]">
                   <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-lg bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+                    <div className="p-3 rounded-lg bg-gradient-orange group-hover:scale-110 transition-all">
                       {link.icon}
                     </div>
                     <div className="flex-1">
                       <h3 className="font-semibold mb-1">{link.label}</h3>
-                      <p className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                      <p className="text-sm text-muted-foreground group-hover:text-orange transition-colors">
                         {link.username}
                       </p>
                     </div>

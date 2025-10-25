@@ -51,7 +51,9 @@ const Services = () => {
     <section id="about" className="py-20 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">My Services</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            My <span className="bg-gradient-to-r from-primary to-orange bg-clip-text text-transparent">Services</span>
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Comprehensive solutions tailored to bring your vision to life
           </p>
@@ -61,10 +63,10 @@ const Services = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_30px_hsl(195_100%_50%_/_0.3)] group"
+              className="bg-gradient-card border-border hover:border-orange transition-all duration-300 hover:shadow-[0_0_30px_hsl(25_95%_55%_/_0.3)] group"
             >
               <CardHeader>
-                <div className="mb-4 text-primary group-hover:scale-110 transition-transform">
+                <div className="w-16 h-16 rounded-lg bg-gradient-orange flex items-center justify-center mb-4 group-hover:scale-110 transition-transform text-background">
                   {service.icon}
                 </div>
                 <CardTitle className="text-xl">{service.title}</CardTitle>
