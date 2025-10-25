@@ -80,4 +80,25 @@ All colors MUST be HSL.
       background-position: 0% 50%;
     }
   }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(25 95% 55% / 0.3),
+                  0 0 40px hsl(25 95% 55% / 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(25 95% 55% / 0.4),
+                  0 0 50px hsl(25 95% 55% / 0.3),
+                  0 0 70px hsl(25 95% 55% / 0.2);
+    }
+  }
+
+  .bg-gradient-glow {
+    background-size: 200% auto;
+    animation: gradient 3s linear infinite, glow 2s ease-in-out infinite alternate;
+  }
 }

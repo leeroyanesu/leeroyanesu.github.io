@@ -56,7 +56,7 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <Button
-            variant="ghost"
+            variant="secondary"
             size="icon"
             className="md:hidden"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -67,12 +67,12 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
+          <div className="md:hidden py-4 border-t border-border animate-fade-in bg-card/80 backdrop-blur-lg">
             {navItems.map((item) => (
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-muted-foreground hover:text-orange transition-colors"
+                className="block w-full text-left px-4 py-3 text-muted-foreground hover:text-orange hover:bg-secondary/50 transition-all"
               >
                 {item.label}
               </button>
