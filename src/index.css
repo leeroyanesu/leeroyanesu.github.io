@@ -2,55 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 220 26% 14%;
-    --foreground: 210 40% 98%;
+    /* Terminal Noir — primary palette */
+    --background: 160 25% 4%;
+    --foreground: 120 15% 92%;
 
-    --card: 220 20% 18%;
-    --card-foreground: 210 40% 98%;
+    --card: 155 30% 6%;
+    --card-foreground: 120 15% 92%;
 
-    --popover: 220 20% 18%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 155 30% 6%;
+    --popover-foreground: 120 15% 92%;
 
-    --primary: 195 100% 50%;
-    --primary-foreground: 220 26% 14%;
+    --primary: 145 100% 45%;
+    --primary-foreground: 160 25% 4%;
 
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 155 25% 11%;
+    --secondary-foreground: 120 15% 92%;
 
-    --muted: 220 15% 25%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 155 25% 11%;
+    --muted-foreground: 140 18% 52%;
 
-    --accent: 280 80% 60%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 25 95% 55%;
+    --accent-foreground: 160 25% 4%;
 
     --orange-accent: 25 95% 55%;
-    --orange-accent-foreground: 220 26% 14%;
+    --orange-accent-foreground: 160 25% 4%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 120 15% 92%;
 
-    --border: 220 15% 25%;
-    --input: 220 15% 25%;
-    --ring: 195 100% 50%;
+    --border: 150 20% 12%;
+    --input: 150 20% 12%;
+    --ring: 145 100% 45%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 50%) 0%, hsl(210 100% 60%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(280 80% 60%) 0%, hsl(195 100% 50%) 100%);
+    /* Extended design tokens */
+    --green-glow: 0 0 20px hsl(145 100% 45% / 0.25), 0 0 50px hsl(145 100% 45% / 0.1);
+    --orange-glow: 0 0 20px hsl(25 95% 55% / 0.35), 0 0 50px hsl(25 95% 55% / 0.15);
     --gradient-orange: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(35 95% 60%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(220 20% 18% / 0.8) 0%, hsl(220 15% 22% / 0.6) 100%);
-    --shadow-glow: 0 0 40px hsl(195 100% 50% / 0.2);
-    --shadow-accent-glow: 0 0 30px hsl(280 80% 60% / 0.3);
-    --shadow-orange-glow: 0 0 30px hsl(25 95% 55% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-card: linear-gradient(145deg, hsl(155 30% 6% / 0.95) 0%, hsl(155 25% 9% / 0.7) 100%);
   }
 }
 
@@ -59,46 +51,150 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(145 100% 45% / 0.25) transparent;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Outfit', sans-serif;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        hsl(145 100% 45% / 0.012) 3px,
+        hsl(145 100% 45% / 0.012) 4px
+      );
+  }
+
+  h1, h2, h3 {
+    font-family: 'Space Mono', monospace;
   }
 }
 
 @layer utilities {
-  .animate-gradient {
-    animation: gradient 3s linear infinite;
+  .font-mono-display {
+    font-family: 'Space Mono', monospace;
   }
-  
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+
+  .font-body {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .terminal-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: hsl(145 100% 45%);
+  }
+
+  .cursor-blink::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+    color: hsl(145 100% 45%);
+    margin-left: 3px;
+    font-size: 0.85em;
+  }
+
+  .animate-fade-in {
+    animation: fade-in-up 0.7s ease-out both;
   }
 
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: orange-glow 2.5s ease-in-out infinite alternate;
   }
 
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 20px hsl(25 95% 55% / 0.3),
-                  0 0 40px hsl(25 95% 55% / 0.2);
-    }
-    to {
-      box-shadow: 0 0 30px hsl(25 95% 55% / 0.4),
-                  0 0 50px hsl(25 95% 55% / 0.3),
-                  0 0 70px hsl(25 95% 55% / 0.2);
-    }
+  .bg-gradient-orange {
+    background-image: var(--gradient-orange);
   }
 
-  .bg-gradient-glow {
-    background-size: 200% auto;
-    animation: gradient 3s linear infinite, glow 2s ease-in-out infinite alternate;
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
   }
+
+  .hover-green-glow {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  }
+  .hover-green-glow:hover {
+    box-shadow: var(--green-glow);
+    border-color: hsl(145 100% 45% / 0.4);
+  }
+
+  .hover-orange-glow {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .hover-orange-glow:hover {
+    box-shadow: var(--orange-glow);
+    border-color: hsl(25 95% 55% / 0.4);
+  }
+
+  .green-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(145 100% 45% / 0.5), transparent);
+  }
+
+  .section-header::before {
+    content: '> ';
+    color: hsl(145 100% 45%);
+    font-family: 'Space Mono', monospace;
+  }
+}
+
+/* FaultyTerminal canvas sizing */
+.faulty-terminal-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.faulty-terminal-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes orange-glow {
+  from { box-shadow: 0 0 12px hsl(25 95% 55% / 0.3), 0 0 24px hsl(25 95% 55% / 0.15); }
+  to   { box-shadow: 0 0 24px hsl(25 95% 55% / 0.5), 0 0 50px hsl(25 95% 55% / 0.25); }
+}
+
+@keyframes gradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scan-sweep {
+  0%   { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to   { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to   { height: 0; }
+}
+
+@keyframes slide-in {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
 }

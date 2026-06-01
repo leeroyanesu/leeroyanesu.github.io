@@ -1,97 +1,104 @@
-import { Card } from "./ui/card";
+import { useState } from "react";
+
+const CATEGORIES = [
+  {
+    id: "languages",
+    label: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "Clarity", "Solidity"],
+  },
+  {
+    id: "frontend",
+    label: "Frontend",
+    skills: ["Next.js", "React.js", "React Native", "HTML5", "CSS3", "SASS", "Tailwind CSS"],
+  },
+  {
+    id: "backend",
+    label: "Backend",
+    skills: ["Node.js", "Express", "PHP"],
+  },
+  {
+    id: "database",
+    label: "Databases",
+    skills: ["MongoDB", "PostgreSQL", "MySQL", "Firebase"],
+  },
+  {
+    id: "tools",
+    label: "Tools",
+    skills: ["Git", "GitHub", "Redux", "Azure", "Linux", "N8N", "AI Integration"],
+  },
+  {
+    id: "devops",
+    label: "DevOps",
+    skills: ["Linux Server Admin", "Azure", "Cloudflare", "Nginx", "PM2", "CI/CD", "Docker", "SSH", "Domain & SSL Config"],
+  },
+  {
+    id: "soft",
+    label: "Soft Skills",
+    skills: ["Problem Solving", "Collaboration", "Analytical Thinking", "System Design"],
+  },
+];
+
+const SectionLabel = ({ children }: { children: string }) => (
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-primary font-mono-display text-sm">{">"}</span>
+    <span className="terminal-label">{children}</span>
+    <div className="flex-1 green-line" />
+  </div>
+);
 
 const Skills = () => {
-  const skillCategories = [
-    {
-      category: "Programming Languages",
-      skills: [
-        { name: "JavaScript", icon: "⚡" },
-        { name: "TypeScript", icon: "📘" },
-        { name: "Python", icon: "🐍" },
-        { name: "Clarity", icon: "💎" },
-        { name: "Solidity", icon: "⛓️" },
-      ],
-    },
-    {
-      category: "Frontend Development",
-      skills: [
-        { name: "Next.js", icon: "▲" },
-        { name: "React.js", icon: "⚛️" },
-        { name: "React Native", icon: "📱" },
-        { name: "HTML", icon: "🌐" },
-        { name: "CSS", icon: "🎨" },
-        { name: "SASS", icon: "💅" },
-        { name: "Tailwind", icon: "🎐" },
-      ],
-    },
-    {
-      category: "Backend Development",
-      skills: [
-        { name: "Node.js", icon: "🟢" },
-        { name: "Express", icon: "🚂" },
-        { name: "PHP", icon: "🐘" },
-      ],
-    },
-    {
-      category: "Database Management",
-      skills: [
-        { name: "MongoDB", icon: "🍃" },
-        { name: "PostgreSQL", icon: "🐘" },
-        { name: "MySQL", icon: "🐬" },
-      ],
-    },
-    {
-      category: "Tools & Platforms",
-      skills: [
-        { name: "Git", icon: "📦" },
-        { name: "GitHub", icon: "🐙" },
-        { name: "Redux", icon: "🔄" },
-        { name: "AWS", icon: "☁️" },
-        { name: "Firebase", icon: "🔥" },
-        { name: "Linux", icon: "🐧" },
-        { name: "N8N", icon: "🔗" },
-        { name: "AI Integration", icon: "🤖" },
-      ],
-    },
-    {
-      category: "Soft Skills",
-      skills: [
-        { name: "Problem Solving", icon: "🧩" },
-        { name: "Collaboration", icon: "🤝" },
-        { name: "Analytical Skills", icon: "📊" },
-      ],
-    },
-  ];
+  const [activeCategory, setActiveCategory] = useState("languages");
+  const current = CATEGORIES.find((c) => c.id === activeCategory)!;
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-24 px-6">
       <div className="container mx-auto">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Skills & Technologies</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern applications
+        <div className="mb-14">
+          <SectionLabel>npm list --skills</SectionLabel>
+          <h2 className="text-4xl md:text-5xl font-bold mt-4">Skills & Stack</h2>
+          <p className="font-body text-muted-foreground mt-3 max-w-xl">
+            Tools I reach for when building real products.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary">{category.category}</h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <Card
-                    key={skillIndex}
-                    className="px-4 py-2 bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:scale-105 cursor-default"
-                  >
-                    <span className="flex items-center gap-2 text-sm">
-                      <span className="text-lg">{skill.icon}</span>
-                      <span className="text-foreground">{skill.name}</span>
-                    </span>
-                  </Card>
-                ))}
-              </div>
+        <div className="max-w-4xl mx-auto">
+          {/* Category tabs */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {CATEGORIES.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => setActiveCategory(id)}
+                className={`font-mono-display text-xs tracking-widest uppercase px-4 py-2 rounded border transition-all duration-200 ${
+                  activeCategory === id
+                    ? "border-primary bg-primary/10 text-primary shadow-[0_0_12px_hsl(145_100%_45%_/_0.2)]"
+                    : "border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          {/* Skills grid */}
+          <div className="p-6 rounded border border-border bg-gradient-card min-h-[180px]">
+            <p className="terminal-label mb-5 opacity-50">
+              {`// ${current.skills.length} items in ${current.label.toLowerCase()}`}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              {current.skills.map((skill, i) => (
+                <div
+                  key={skill}
+                  className="group flex items-center gap-2 px-4 py-2 rounded border border-border bg-secondary/40 hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 cursor-default"
+                  style={{ animationDelay: `${i * 50}ms` }}
+                >
+                  <span className="text-primary font-mono-display text-xs opacity-50 group-hover:opacity-100 transition-opacity">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-body text-sm text-foreground">{skill}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

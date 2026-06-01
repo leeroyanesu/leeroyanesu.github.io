@@ -1,240 +1,256 @@
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { GradientText } from "./ui/gradient-text";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog";
-import { ChevronLeft, ChevronRight, ExternalLink } from "lucide-react";
-import { Button } from "./ui/button";
+import { ArrowLeft, ArrowRight, LockSimple, LockOpen, ArrowSquareOut } from "@phosphor-icons/react";
 
 interface Project {
   title: string;
   description: string;
   tags: string[];
   status: "Public" | "Private";
+  url?: string;
   images?: string[];
 }
 
+const projects: Project[] = [
+  {
+    title: "HomeQuest",
+    description:
+      "Property platform for browsing, listing, and inquiring on residential and commercial properties. Built for performance on variable connections with a clean, fast interface.",
+    tags: ["React", "Node.js", "MongoDB", "Property Tech"],
+    status: "Public",
+    url: "https://homequest.co.zw",
+    images: ["/screenshots/homequest.png"],
+  },
+  {
+    title: "PromptGap",
+    description:
+      "Prompt engineering tool that finds the gaps in your AI prompts. Test, compare, and refine across models to get consistent, reliable output every time.",
+    tags: ["AI", "Next.js", "LLM", "Prompt Engineering", "Developer Tool"],
+    status: "Public",
+    url: "https://trypromptgap.com",
+    images: ["/screenshots/promptgap.png"],
+  },
+  {
+    title: "InkCopilot",
+    description:
+      "AI content automation platform for publishers. Connects to WordPress via REST API, writes articles with GPT, applies SEO optimization, and pulls live news. Takes creators from 3 to 15+ articles per week.",
+    tags: ["AI", "Next.js", "WordPress API", "SEO", "Automation"],
+    status: "Public",
+    url: "https://inkcopilot.com",
+    images: ["/screenshots/inkcopilot.png"],
+  },
+  {
+    title: "PharmOS",
+    description:
+      "Pharmaceutical POS for Windows and Linux. Covers prescription tracking, inventory, supplier orders, and sales reporting. Ships with a built-in database of 3,000+ SADC-approved medicines and full license management — so pharmacies are compliant from day one.",
+    tags: ["Electron", "Next.js", "Node.js", "SQLite", "Windows", "Linux", "POS", "License Management", "SADC"],
+    status: "Public",
+    images: ["/screenshots/pharmos.png"],
+  },
+  {
+    title: "SWEPR",
+    description:
+      "Blockchain-based gaming platform on Stacks. Weekly leaderboards, $SWPR token mining, lottery system with STX rewards, and Xverse/Leather wallet integration for transparent instant payouts.",
+    tags: ["Stacks Blockchain", "Web3", "React", "Smart Contracts", "Gaming"],
+    status: "Public",
+    images: ["/placeholder.svg"],
+  },
+  {
+    title: "Mobile App (3 in 1)",
+    description:
+      "A 3-in-1 super app connecting stakeholders through a single platform — food delivery, ride-sharing, and property booking. React Native with real-time tracking, Stripe payments, and seamless UX.",
+    tags: ["React Native", "Stripe", "Firebase", "Redux", "UX/UI Design"],
+    status: "Private",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+  },
+  {
+    title: "Driver & Merchant Apps",
+    description:
+      "Companion apps for the 3-in-1 ecosystem — driver order management, restaurant backend, and multi-service provider dashboards. Complete operational layer for every stakeholder.",
+    tags: ["React Native", "Stripe", "Firebase", "Redux", "UX/UI Design"],
+    status: "Private",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+  },
+  {
+    title: "Real Estate CrowdFunding",
+    description:
+      "Mobile crowdfunding app for real estate projects. React Native, ExpressJS, Firebase push notifications, and MongoDB. Features investment tracking, project analytics, and secure transactions.",
+    tags: ["React Native", "NodeJs", "ExpressJs", "MongoDB", "Redux", "Stripe"],
+    status: "Private",
+    images: ["/placeholder.svg"],
+  },
+  {
+    title: "Crypto Chart Publisher",
+    description:
+      "WhatsApp-based bot that screenshots live Binance coin/token prices and delivers them automatically. Automated market analysis and real-time price alerts through WhatsApp Web.",
+    tags: ["NodeJs", "ExpressJs", "WhatsApp Web"],
+    status: "Public",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+  },
+  {
+    title: "Live Trading Signals",
+    description:
+      "Mobile app for broadcasting curated trading signals from @ironmanFX to subscribers. Keeps users informed on market movements and opportunities in real time.",
+    tags: ["NodeJs", "ExpressJs", "WhatsApp Web", "NewsAPI"],
+    status: "Private",
+    images: ["/placeholder.svg"],
+  },
+  {
+    title: "StacksOcean NFT Marketplace",
+    description:
+      "NFT marketplace on the Stacks blockchain — buy, sell, and trade digital assets in a fully decentralized, transparent environment. Built with React.js and Clarity smart contracts.",
+    tags: ["React.js", "Clarity", "Material UI"],
+    status: "Private",
+    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+  },
+  {
+    title: "ChickenHotspot Chatbot",
+    description:
+      "WhatsApp Business API food ordering chatbot — menu browsing, order customization, and payment integration all via WhatsApp. Zero app install required.",
+    tags: ["NodeJs", "WhatsApp Business API"],
+    status: "Private",
+    images: ["/placeholder.svg"],
+  },
+  {
+    title: "Skuta Cuisine",
+    description:
+      "South African mobile food ordering app using PeechPayment. Browse menus, place orders, and pay — all in one seamless experience. Built with React Native and MongoDB.",
+    tags: ["Node.js", "Express.js", "MongoDB", "React Native", "Peech Payment"],
+    status: "Private",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+  },
+  {
+    title: "SuSe Trading Bot",
+    description:
+      "Python trading bot with Pandas, RSI, ADX, SuperTrend, and MA indicators. Makes informed automated trading decisions based on key market signals.",
+    tags: ["Python", "MongoDB"],
+    status: "Private",
+    images: ["/placeholder.svg"],
+  },
+  {
+    title: "School Management System",
+    description:
+      "Comprehensive school management platform with a React UI. Designed as lead UI designer, crafting an intuitive and efficient interface for students, teachers, and administrators.",
+    tags: ["React.js"],
+    status: "Public",
+    images: ["/placeholder.svg", "/placeholder.svg"],
+  },
+];
+
+const SectionLabel = ({ children }: { children: string }) => (
+  <div className="flex items-center gap-3 mb-2">
+    <span className="text-primary font-mono-display text-sm">{">"}</span>
+    <span className="terminal-label">{children}</span>
+    <div className="flex-1 green-line" />
+  </div>
+);
+
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selected, setSelected] = useState<Project | null>(null);
+  const [imgIdx, setImgIdx] = useState(0);
 
-  const projects: Project[] = [
-    {
-      title: "InkCopilot",
-      description:
-        "AI-powered content creation and publishing automation platform for busy creators. Features automated article generation, WordPress integration, SEO insights, and news integration. Helps creators scale from 3 to 15+ articles per week while maintaining quality.",
-      tags: ["AI", "Next.js", "WordPress API", "SEO", "Automation"],
-      status: "Public",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "SWEPR",
-      description:
-        "Blockchain-based gaming platform powered by Deorganised on Stacks Blockchain. Features weekly leaderboards, $SWPR token mining, lottery system with STX rewards, and Xverse/Leather wallet integration for transparent, instant payouts.",
-      tags: ["Stacks Blockchain", "Web3", "React", "Smart Contracts", "Gaming"],
-      status: "Public",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "Mobile App (3 in 1)",
-      description:
-        "A 3 in 1 application that seeks to connect various stakeholders to their customers through a single application. Food delivery, ride sharing or property booking for the holidays. Built with React Native, featuring real-time tracking, secure payments via Stripe, and seamless UX.",
-      tags: ["React Native", "Stripe", "Firebase", "Redux", "UX/UI Design"],
-      status: "Private",
-      images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      title: "Mobile App (Subsidiaries of 3 in 1)",
-      description:
-        "For each of the services provided by the 3 in 1 app, there is a driver app for managing orders and data. For food delivery there is a merchant application for handling the backend of the restaurant. Complete ecosystem of companion apps for drivers, merchants, and service providers.",
-      tags: ["React Native", "Stripe", "Firebase", "Redux", "UX/UI Design"],
-      status: "Private",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      title: "UI/UX Real Estate CrowdFunding App",
-      description:
-        "A real estate mobile application developed using React Native, ExpressJs, Firebase Notifications and Mongodb. Its main use is to crowdfund projects that exists in the real estate market. Features investment tracking, project analytics, and secure transactions.",
-      tags: ["React Native", "NodeJs", "ExpressJs", "MongoDB", "Redux", "Stripe"],
-      status: "Private",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "Crypto Chart Publisher",
-      description:
-        "A Chatbot that utilizes whatsapp web to develop screenshots of prices of any coin/token that exists in Binance Exchange and send a picture through whatsapp web. Automated market analysis and real-time price alerts.",
-      tags: ["NodeJs", "ExpressJs", "WhatsappWeb"],
-      status: "Public",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      title: "Live Signals",
-      description:
-        "A mobile application for publishing trading signals to anyone who has and follows @ironmanFX. It delivers curated trading signals from experienced experts, keeping users informed about market movements and opportunities.",
-      tags: ["NodeJs", "ExpressJs", "WhatsappWeb", "NewsAPI"],
-      status: "Private",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "StacksOcean Website App",
-      description:
-        "A NFT marketplace that runs on stacks blockchain where users buy and sell NFTs. This platform provided a decentralized environment for trading digital assets, offering transparency and trust through blockchain technology.",
-      tags: ["React.js", "Clarity", "Material UI"],
-      status: "Private",
-      images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      title: "ChickenHotspot Chatbot",
-      description:
-        "A Food ordering Chatbot that makes use of Whatsapp business API. This Chatbot streamlined the ordering process, providing users with menu options, order customization, and payment integration directly through WhatsApp.",
-      tags: ["NodeJs", "WhatsApp Business API"],
-      status: "Private",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "Skuta Cuisine Mobile App",
-      description:
-        "A mobile food ordering application based in South Africa which utilizes PeechPayment. This application offered users a convenient platform to browse menus, place orders, and make payments seamlessly.",
-      tags: ["Node.js", "Express.js", "MongoDB", "React Native", "Peech Payment"],
-      status: "Private",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-    },
-    {
-      title: "SuSe Trading Bot",
-      description:
-        "I engineered a robust trading bot using Python, harnessing modules like Pandas for meticulous data analysis. Implementing key indicators including RSI, ADX, SuperTrend, and MA, the bot made informed decisions for automated trading.",
-      tags: ["Python", "MongoDB"],
-      status: "Private",
-      images: ["/placeholder.svg"],
-    },
-    {
-      title: "School Management System",
-      description:
-        "I led the design and development of a comprehensive School Management System, employing ReactJS to create an intuitive and efficient user interface. Serving as the lead UI designer, I crafted a visually appealing and user-friendly platform.",
-      tags: ["React.js"],
-      status: "Public",
-      images: ["/placeholder.svg", "/placeholder.svg"],
-    },
-  ];
-
-  const handlePrevImage = () => {
-    if (selectedProject && selectedProject.images) {
-      setCurrentImageIndex((prev) =>
-        prev === 0 ? selectedProject.images!.length - 1 : prev - 1
-      );
-    }
-  };
-
-  const handleNextImage = () => {
-    if (selectedProject && selectedProject.images) {
-      setCurrentImageIndex((prev) =>
-        prev === selectedProject.images!.length - 1 ? 0 : prev + 1
-      );
-    }
-  };
+  const prev = () => selected?.images && setImgIdx((i) => (i === 0 ? selected.images!.length - 1 : i - 1));
+  const next = () => selected?.images && setImgIdx((i) => (i === selected.images!.length - 1 ? 0 : i + 1));
 
   return (
-    <section id="projects" className="py-20 px-4 bg-secondary/30">
+    <section id="projects" className="py-24 px-6 bg-secondary/20">
       <div className="container mx-auto">
-        <div className="text-center mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Recent <GradientText colors={["from-orange", "to-primary"]}>Works</GradientText>
-          </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            A showcase of projects that demonstrate my expertise across various domains
-          </p>
+        <div className="mb-14">
+          <SectionLabel>ls ./projects</SectionLabel>
+          <div className="flex items-end justify-between gap-4 flex-wrap mt-4">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold">Recent Works</h2>
+              <p className="font-body text-muted-foreground mt-3 max-w-xl">
+                A showcase of projects across web, mobile, and Web3.
+              </p>
+            </div>
+            <span className="terminal-label opacity-50">{projects.length} projects</span>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <Card
-              key={index}
-              className="bg-gradient-card border-border hover:border-primary transition-all duration-300 hover:shadow-[0_0_30px_hsl(195_100%_50%_/_0.3)] cursor-pointer group"
-              onClick={() => {
-                setSelectedProject(project);
-                setCurrentImageIndex(0);
-              }}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {projects.map((project, i) => (
+            <button
+              key={i}
+              onClick={() => { setSelected(project); setImgIdx(0); }}
+              className="group text-left p-5 rounded border border-border bg-gradient-card hover:border-primary/30 hover-green-glow transition-all duration-300"
             >
-              <CardHeader>
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <Badge variant={project.status === "Public" ? "default" : "secondary"} className={project.status === "Public" ? "bg-gradient-orange" : ""}>
-                    {project.status}
+              <div className="flex items-start justify-between gap-2 mb-3">
+                <span className="font-mono-display text-[10px] text-muted-foreground opacity-50">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className={`flex items-center gap-1 text-[10px] font-mono-display px-2 py-0.5 rounded border ${
+                  project.status === "Public"
+                    ? "border-primary/30 bg-primary/5 text-primary"
+                    : "border-border text-muted-foreground"
+                }`}>
+                  {project.status === "Public"
+                    ? <LockOpen size={10} weight="bold" />
+                    : <LockSimple size={10} weight="bold" />
+                  }
+                  {project.status}
+                </div>
+              </div>
+
+              <h3 className="font-mono-display text-sm font-bold text-foreground group-hover:text-primary transition-colors duration-200 mb-2">
+                {project.title}
+              </h3>
+
+              <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-3 mb-4">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.slice(0, 3).map((tag, j) => (
+                  <Badge key={j} variant="outline" className="font-body text-[10px] border-border/60 text-muted-foreground">
+                    {tag}
                   </Badge>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <CardDescription className="text-muted-foreground line-clamp-3">
-                  {project.description}
-                </CardDescription>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.slice(0, 3).map((tag, i) => (
-                    <Badge key={i} variant="outline" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                  {project.tags.length > 3 && (
-                    <Badge variant="outline" className="text-xs">
-                      +{project.tags.length - 3}
-                    </Badge>
-                  )}
-                </div>
-                {project.images && project.images.length > 0 && (
-                  <div className="flex items-center gap-2 text-sm text-primary">
-                    <ExternalLink size={16} />
-                    <span>View Gallery ({project.images.length})</span>
-                  </div>
+                ))}
+                {project.tags.length > 3 && (
+                  <Badge variant="outline" className="font-body text-[10px] border-border/60 text-primary/60">
+                    +{project.tags.length - 3}
+                  </Badge>
                 )}
-              </CardContent>
-            </Card>
+              </div>
+            </button>
           ))}
         </div>
       </div>
 
-      <Dialog
-        open={!!selectedProject}
-        onOpenChange={(open) => !open && setSelectedProject(null)}
-      >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-card border-border">
           <DialogHeader>
-            <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
+            <DialogTitle className="font-mono-display text-xl">{selected?.title}</DialogTitle>
           </DialogHeader>
-          <div className="space-y-6">
-            {selectedProject?.images && selectedProject.images.length > 0 && (
-              <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
+          <div className="space-y-5">
+            {selected?.images && selected.images.length > 0 && (
+              <div className="relative bg-secondary rounded border border-border overflow-y-auto" style={{ maxHeight: '70vh', minHeight: '280px' }}>
                 <img
-                  src={selectedProject.images[currentImageIndex]}
-                  alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover"
+                  src={selected.images[imgIdx]}
+                  alt={`${selected.title} ${imgIdx + 1}`}
+                  className="w-full h-auto object-contain"
                 />
-                {selectedProject.images.length > 1 && (
+                {selected.images.length > 1 && (
                   <>
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      className="absolute left-4 top-1/2 -translate-y-1/2"
-                      onClick={handlePrevImage}
+                    <button
+                      onClick={prev}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded border border-border bg-card/80 text-foreground hover:text-primary transition-colors"
                     >
-                      <ChevronLeft />
-                    </Button>
-                    <Button
-                      variant="secondary"
-                      size="icon"
-                      className="absolute right-4 top-1/2 -translate-y-1/2"
-                      onClick={handleNextImage}
+                      <ArrowLeft size={16} weight="bold" />
+                    </button>
+                    <button
+                      onClick={next}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded border border-border bg-card/80 text-foreground hover:text-primary transition-colors"
                     >
-                      <ChevronRight />
-                    </Button>
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {selectedProject.images.map((_, i) => (
+                      <ArrowRight size={16} weight="bold" />
+                    </button>
+                    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                      {selected.images.map((_, k) => (
                         <button
-                          key={i}
-                          onClick={() => setCurrentImageIndex(i)}
-                          className={`w-2 h-2 rounded-full transition-all ${
-                            i === currentImageIndex ? "bg-primary w-8" : "bg-muted-foreground"
-                          }`}
+                          key={k}
+                          onClick={() => setImgIdx(k)}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${k === imgIdx ? "w-6 bg-primary" : "w-1.5 bg-muted-foreground/40"}`}
                         />
                       ))}
                     </div>
@@ -242,19 +258,28 @@ const Projects = () => {
                 )}
               </div>
             )}
-            <div className="space-y-4">
-              <p className="text-muted-foreground leading-relaxed">
-                {selectedProject?.description}
-              </p>
-              <div className="space-y-2">
-                <h4 className="font-semibold">Technologies Used:</h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject?.tags.map((tag, i) => (
-                    <Badge key={i} variant="outline">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+            <p className="font-body text-sm text-muted-foreground leading-relaxed">
+              {selected?.description}
+            </p>
+            {selected?.url && (
+              <a
+                href={selected.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-mono-display text-xs text-primary border border-primary/30 bg-primary/5 px-4 py-2 rounded hover:bg-primary/10 hover:border-primary/60 transition-all duration-200"
+              >
+                <ArrowSquareOut size={14} weight="bold" />
+                {selected.url.replace(/^https?:\/\//, '')}
+              </a>
+            )}
+            <div>
+              <p className="terminal-label mb-2">// technologies</p>
+              <div className="flex flex-wrap gap-2">
+                {selected?.tags.map((tag, i) => (
+                  <Badge key={i} variant="outline" className="font-body border-border/60 text-muted-foreground">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>

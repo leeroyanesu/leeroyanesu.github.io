@@ -1,82 +1,120 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
+import { List, X } from "@phosphor-icons/react";
+
+const NAV_ITEMS = [
+  { label: "about",      href: "#about" },
+  { label: "services",   href: "#services" },
+  { label: "experience", href: "#experience" },
+  { label: "skills",     href: "#skills" },
+  { label: "projects",   href: "#projects" },
+  { label: "contact",    href: "#contact" },
+];
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [active, setActive] = useState("about");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Services", href: "#services" },
-    { label: "Experience", href: "#experience" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-  ];
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { threshold: 0.4 }
+    );
+    NAV_ITEMS.forEach(({ href }) => {
+      const el = document.querySelector(href);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
-  const scrollToSection = (href: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: "smooth" });
+  const scrollTo = (href: string) => {
+    setMobileOpen(false);
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-card/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border"
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2">
-            <img src="/icon.png" alt="MrLeeC Logo" className="w-24 h-24" />
-          </a>
+          {/* Logo */}
+          <button
+            onClick={() => scrollTo("#about")}
+            className="flex items-center gap-1 font-mono-display text-sm font-bold"
+          >
+            <span className="text-primary">{">"}</span>
+            <img src="/icon.png" alt="MrLeeC" className="w-20 h-20" />
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="text-sm text-muted-foreground hover:text-orange transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-6">
+            {NAV_ITEMS.map(({ label, href }) => {
+              const isActive = active === href.slice(1);
+              return (
+                <button
+                  key={label}
+                  onClick={() => scrollTo(href)}
+                  className={`font-mono-display text-xs tracking-widest uppercase transition-all duration-200 relative pb-1 ${
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {isActive && (
+                    <span className="absolute -left-3 top-0 text-primary opacity-70">{">"}</span>
+                  )}
+                  {label}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-0 right-0 h-px bg-primary/50" />
+                  )}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Mobile Menu Button */}
-          <Button
-            variant="secondary"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          {/* Mobile toggle */}
+          <button
+            className="md:hidden p-2 text-muted-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </Button>
+            {mobileOpen ? <X size={22} /> : <List size={22} />}
+          </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in bg-card/80 backdrop-blur-lg">
-            {navItems.map((item) => (
-              <button
-                key={item.label}
-                onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left px-4 py-3 text-muted-foreground hover:text-orange hover:bg-secondary/50 transition-all"
-              >
-                {item.label}
-              </button>
-            ))}
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-xl animate-fade-in">
+            {NAV_ITEMS.map(({ label, href }) => {
+              const isActive = active === href.slice(1);
+              return (
+                <button
+                  key={label}
+                  onClick={() => scrollTo(href)}
+                  className={`flex items-center gap-3 w-full px-4 py-3.5 font-mono-display text-xs tracking-widest uppercase transition-colors ${
+                    isActive
+                      ? "text-primary border-l-2 border-primary pl-3.5"
+                      : "text-muted-foreground hover:text-foreground border-l-2 border-transparent pl-3.5"
+                  }`}
+                >
+                  <span className={isActive ? "text-primary" : "opacity-0"}>{">"}</span>
+                  {label}
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
