@@ -16,8 +16,8 @@ const projects: Project[] = [
   {
     title: "HomeQuest",
     description:
-      "Property platform for browsing, listing, and inquiring on residential and commercial properties. Built for performance on variable connections with a clean, fast interface.",
-    tags: ["React", "Node.js", "MongoDB", "Property Tech"],
+      "Led frontend development for a property platform covering browsing, listing, and inquiring on residential and commercial properties. Built for performance on variable connections with a clean, fast interface.",
+    tags: ["React", "Frontend Development", "Node.js", "MongoDB", "Property Tech"],
     status: "Public",
     url: "https://homequest.co.zw",
     images: ["/screenshots/homequest.png"],
@@ -39,6 +39,31 @@ const projects: Project[] = [
     status: "Public",
     url: "https://inkcopilot.com",
     images: ["/screenshots/inkcopilot.png"],
+  },
+  {
+    title: "Raytrents",
+    description:
+      "Zimbabwe's multivendor car marketplace connecting dealers and private sellers in one inventory. Features a Fair Price verification tool, budget calculator, side-by-side car comparison, dealer/service centre directories, and an auto parts store.",
+    tags: ["React", "Node.js", "MongoDB", "Marketplace", "Automotive"],
+    status: "Public",
+    url: "https://raytrents.com",
+    images: ["/screenshots/raytrents.png"],
+  },
+  {
+    title: "Cosy Cups POS & Dashboard",
+    description:
+      "POS and management system for a coffee shop chain. React Native POS app with receipt printer integration for in-store orders, paired with a web dashboard for sales reporting, inventory, and multi-location oversight.",
+    tags: ["React Native", "Next.js", "Node.js", "POS", "Printer Integration", "Dashboard"],
+    status: "Private",
+    images: ["/screenshots/cosycups.png"],
+  },
+  {
+    title: "Classic Fashion POS & Dashboard",
+    description:
+      "POS and management system for a fashion retail store. React Native POS app with receipt printer integration for checkout, paired with a web dashboard for inventory, sales tracking, and store performance.",
+    tags: ["React Native", "Next.js", "Node.js", "POS", "Printer Integration", "Dashboard"],
+    status: "Private",
+    images: ["/placeholder.svg", "/placeholder.svg"],
   },
   {
     title: "PharmOS",
